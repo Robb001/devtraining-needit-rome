@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.ComletaEmail</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Script per completare automaticamnete il campo email tramite chiamata Ajax</description>
+        <name>ComletaEmail</name>
+        <script><![CDATA[var ComletaEmail = Class.create();
+ComletaEmail.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getEmail: function(){
+		//prendi record degli user
+		var usoRecord = new GlideRecord('sys_user');
+		//prendi tutti i parametri di user id: nome cognome email ecc
+		//this si riferisce a sysparm_userID
+		usoRecord.get(this.getParameter('sysparm_userID'));
+		//ritorna le email
+		return usoRecord.email + "";
+		
+	},
+	// si riceve la tipologia che si possiede  
+	type: 'ComletaEmail'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-02-09 16:00:51</sys_created_on>
+        <sys_id>d4a2d4861b650110e5605464604bcb83</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ComletaEmail</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_d4a2d4861b650110e5605464604bcb83</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-02-09 16:07:19</sys_updated_on>
+    </sys_script_include>
+</record_update>
